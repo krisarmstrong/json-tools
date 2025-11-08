@@ -1,5 +1,10 @@
 # json-tools
 
+[![CI](https://github.com/krisarmstrong/json-tools/workflows/CI/badge.svg)](https://github.com/krisarmstrong/json-tools/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 `json-tools` is a single CLI/SDK for every JSON/CSV/XML workflow that used to be split
 across `csv_to_json_converter`, `json_to_xml`, `json_toolkit`, `json_pretty_printer`,
 and `json_comparator`. It ships one binary with pluggable subcommands so conversions,
