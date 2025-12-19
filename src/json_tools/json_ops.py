@@ -6,7 +6,7 @@ import difflib
 import json
 import logging
 from pathlib import Path
-from typing import Iterable, Sequence
+from typing import Sequence
 
 __all__ = [
     "compare_json_files",
@@ -38,7 +38,11 @@ def compare_json_files(file_paths: Sequence[Path]) -> list[str]:
         file_a = file_paths[index]
         file_b = file_paths[index + 1]
         logging.info("Comparing %s <-> %s", file_a, file_b)
-        diff_lines = list(difflib.unified_diff(rendered[index], rendered[index + 1], fromfile=str(file_a), tofile=str(file_b)))
+        diff_lines = list(
+            difflib.unified_diff(
+                rendered[index], rendered[index + 1], fromfile=str(file_a), tofile=str(file_b)
+            )
+        )
         if diff_lines:
             diffs.extend(diff_lines)
         else:

@@ -1,4 +1,6 @@
 # json-tools
+[![Checks](https://github.com/krisarmstrong/json-tools/actions/workflows/checks.yml/badge.svg)](https://github.com/krisarmstrong/json-tools/actions/workflows/checks.yml)
+
 
 [![CI](https://github.com/krisarmstrong/json-tools/workflows/CI/badge.svg)](https://github.com/krisarmstrong/json-tools/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -80,6 +82,12 @@ json_ops.pretty_print_json(Path("raw.json"), Path("formatted.json"))
 ```
 
 ## Development
+Run the full local checks:
+
+```bash
+./check.sh
+```
+
 
 ```bash
 python -m venv .venv && source .venv/bin/activate

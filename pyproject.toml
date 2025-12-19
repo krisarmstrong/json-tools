@@ -53,6 +53,7 @@ fallback_version = "0.0.0"
 [tool.pytest.ini_options]
 addopts = "-ra --showlocals"
 testpaths = ["tests"]
+pythonpath = ["src"]
 
 [tool.coverage.run]
 source = ["json_tools"]
@@ -61,3 +62,10 @@ branch = true
 [tool.coverage.report]
 show_missing = true
 skip_empty = true
+
+[tool.ruff]
+line-length = 100
+extend-exclude = ["build", "dist", ".venv", "venv", ".tox", ".mypy_cache", ".ruff_cache"]
+
+[tool.black]
+line-length = 100

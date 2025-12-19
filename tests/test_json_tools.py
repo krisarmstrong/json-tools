@@ -33,7 +33,10 @@ class JsonToolsTestCase(unittest.TestCase):
 
         self.json_nested_file = self.test_dir / "nested.json"
         with self.json_nested_file.open("w", encoding="utf-8") as handle:
-            json.dump({"rows": {"row": [{"name": "Alice", "age": "30"}, {"name": "Bob", "age": "25"}]}}, handle)
+            json.dump(
+                {"rows": {"row": [{"name": "Alice", "age": "30"}, {"name": "Bob", "age": "25"}]}},
+                handle,
+            )
 
         self.xml_file = self.test_dir / "people.xml"
         self.xml_file.write_text(
@@ -90,7 +93,9 @@ class JsonToolsTestCase(unittest.TestCase):
         self.assertEqual(parsed.tag, "people")
         self.assertEqual(len(list(parsed)), 2)
 
-        converters.convert_xml_to_csv(xml_target, csv_target, ",", "utf-8", row_path="people.person")
+        converters.convert_xml_to_csv(
+            xml_target, csv_target, ",", "utf-8", row_path="people.person"
+        )
         with csv_target.open("r", encoding="utf-8") as handle:
             rows = list(csv.reader(handle))
         self.assertEqual(rows[0], ["name", "age"])

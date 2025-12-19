@@ -156,7 +156,9 @@ def _read_csv_rows(input_path: Path, *, delimiter: str, encoding: str) -> list[d
     return rows
 
 
-def _write_csv(output_path: Path, rows: Sequence[dict[str, Any]], *, delimiter: str, encoding: str) -> None:
+def _write_csv(
+    output_path: Path, rows: Sequence[dict[str, Any]], *, delimiter: str, encoding: str
+) -> None:
     fieldnames = _collect_fieldnames(rows)
     with output_path.open("w", newline="", encoding=encoding) as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=delimiter)

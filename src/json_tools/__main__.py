@@ -36,7 +36,9 @@ def setup_logging(verbose: bool, logfile: Path | None = None) -> None:
     handlers = [logging.StreamHandler(sys.stdout)]
     if logfile:
         handlers.append(logging.FileHandler(logfile))
-    logging.basicConfig(level=level, format="%(asctime)s [%(levelname)s] %(message)s", handlers=handlers)
+    logging.basicConfig(
+        level=level, format="%(asctime)s [%(levelname)s] %(message)s", handlers=handlers
+    )
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -44,10 +46,27 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("-v", "--verbose", action="store_true", help="Enable debug logging.")
     parser.add_argument("-l", "--logfile", type=Path, help="Optional log file.")
 
-    parser.add_argument("-i", "--input", type=Path, help="Input file (required for convert/--pretty).")
-    parser.add_argument("-o", "--output", type=Path, help="Output file (required for convert/--pretty, optional for --compare).")
-    parser.add_argument("--from", dest="source_format", choices=FORMATS, help="Source format (auto-detected if omitted).")
-    parser.add_argument("--to", dest="target_format", choices=FORMATS, help="Target format (auto-detected if omitted).")
+    parser.add_argument(
+        "-i", "--input", type=Path, help="Input file (required for convert/--pretty)."
+    )
+    parser.add_argument(
+        "-o",
+        "--output",
+        type=Path,
+        help="Output file (required for convert/--pretty, optional for --compare).",
+    )
+    parser.add_argument(
+        "--from",
+        dest="source_format",
+        choices=FORMATS,
+        help="Source format (auto-detected if omitted).",
+    )
+    parser.add_argument(
+        "--to",
+        dest="target_format",
+        choices=FORMATS,
+        help="Target format (auto-detected if omitted).",
+    )
     parser.add_argument("-d", "--delimiter", default=",", help="CSV delimiter (where applicable).")
     parser.add_argument("-e", "--encoding", default="utf-8", help="Text encoding for all file IO.")
     parser.add_argument(
@@ -128,7 +147,9 @@ def _handle_convert(args: argparse.Namespace) -> None:
     target_format = args.target_format or _infer_format(args.output, allow_missing=True)
 
     if not source_format:
-        raise ValueError("Unable to infer input format. Please use --from to specify it explicitly.")
+        raise ValueError(
+            "Unable to infer input format. Please use --from to specify it explicitly."
+        )
     if not target_format:
         raise ValueError("Unable to infer output format. Please use --to to specify it explicitly.")
 
@@ -148,13 +169,17 @@ def _emit_diffs(diffs: list[str], destination: Path | None) -> None:
             print(line)
 
 
-def _conversion_handler(func: Callable[[argparse.Namespace], None]) -> Callable[[argparse.Namespace], None]:
+def _conversion_handler(
+    func: Callable[[argparse.Namespace], None],
+) -> Callable[[argparse.Namespace], None]:
     return func
 
 
 _CONVERSION_HANDLERS: dict[FormatPair, Callable[[argparse.Namespace], None]] = {
     ("csv", "json"): _conversion_handler(
-        lambda args: converters.convert_csv_to_json(args.input, args.output, args.delimiter, args.encoding)
+        lambda args: converters.convert_csv_to_json(
+            args.input, args.output, args.delimiter, args.encoding
+        )
     ),
     ("csv", "xml"): _conversion_handler(
         lambda args: converters.convert_csv_to_xml(
@@ -167,10 +192,14 @@ _CONVERSION_HANDLERS: dict[FormatPair, Callable[[argparse.Namespace], None]] = {
         )
     ),
     ("csv", "csv"): _conversion_handler(
-        lambda args: converters.convert_csv_to_csv(args.input, args.output, args.delimiter, args.encoding)
+        lambda args: converters.convert_csv_to_csv(
+            args.input, args.output, args.delimiter, args.encoding
+        )
     ),
     ("json", "csv"): _conversion_handler(
-        lambda args: converters.convert_json_to_csv(args.input, args.output, args.delimiter, args.encoding)
+        lambda args: converters.convert_json_to_csv(
+            args.input, args.output, args.delimiter, args.encoding
+        )
     ),
     ("json", "xml"): _conversion_handler(
         lambda args: converters.convert_json_to_xml(args.input, args.output, args.encoding)
