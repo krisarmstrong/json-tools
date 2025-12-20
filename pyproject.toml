@@ -1,6 +1,6 @@
 [project]
 name = "json-tools"
-dynamic = ["version"]
+version = "2.0.3"
 description = "Unified toolkit for converting, diffing, and formatting JSON/CSV/XML data."
 authors = [
     { name = "Kris Armstrong", email = "kris.armstrong@example.com" }
@@ -40,15 +40,11 @@ Homepage = "https://github.com/krisarmstrong/json-tools"
 json-tools = "json_tools.__main__:main"
 
 [build-system]
-requires = ["setuptools>=68", "setuptools_scm>=8"]
+requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["src"]
-
-[tool.setuptools_scm]
-version_file = "src/json_tools/_version.py"
-fallback_version = "0.0.0"
 
 [tool.pytest.ini_options]
 addopts = "-ra --showlocals"

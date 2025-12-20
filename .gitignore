@@ -47,3 +47,10 @@ test_output/
 *.csv
 *.xml
 *.json.bak
+
+# Tooling defaults
+.env
+.env.*
+.mypy_cache/
+.ruff_cache/
+coverage.xml

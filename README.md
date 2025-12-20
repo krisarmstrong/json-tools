@@ -110,11 +110,11 @@ A GitHub Actions workflow (`.github/workflows/ci.yml`) runs `nox -s tests` on ev
 
 ### Release & Versioning
 
-Versions are derived from annotated git tags via `setuptools_scm`. To cut a release:
+Versions are stored in `pyproject.toml` and release-please manages tags and changelog entries. To cut a release:
 
 1. Ensure `main` is green in CI.
-2. Create an annotated tag such as `git tag -a v2.1.0 -m "v2.1.0"`.
-3. Push the tag (`git push origin v2.1.0`). The CI workflow runs automatically and downstream builds/installations will report the new version.
+2. Merge the release-please PR (it updates the version and changelog).
+3. The release workflow tags and publishes automatically.
 
 ## License
 
