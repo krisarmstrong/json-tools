@@ -4,5 +4,4 @@ This placeholder keeps imports working in editable installs before the first
 tag-derived version is written. Do not edit manually; it will be overwritten.
 """
 
-version = "2.0.1"
-
+version = "2.0.2"
