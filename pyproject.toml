@@ -1,6 +1,6 @@
 [project]
 name = "json-tools"
-version = "2.0.3"
+version = "0.1.0"
 description = "Unified toolkit for converting, diffing, and formatting JSON/CSV/XML data."
 authors = [
     { name = "Kris Armstrong", email = "kris.armstrong@example.com" }
