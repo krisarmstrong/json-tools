@@ -1,9 +1,28 @@
-# Python
+# ╔═══════════════════════════════════════════════════════════════════════════╗
+# ║ JSON Tools - .gitignore                                                   ║
+# ╠═══════════════════════════════════════════════════════════════════════════╣
+# ║ Unified toolkit for converting, diffing, and formatting JSON/CSV/XML      ║
+# ║ Stack: Python 3.x, data format conversion                                 ║
+# ╚═══════════════════════════════════════════════════════════════════════════╝
+
+# ─── Python Core ─────────────────────────────────────────────────────────────
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
+*.pyc
+*.pyo
+*.pyd
+
+# ─── Virtual Environments ────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
 .Python
+
+# ─── Distribution & Packaging ────────────────────────────────────────────────
 build/
 develop-eggs/
 dist/
@@ -20,37 +39,55 @@ wheels/
 .installed.cfg
 *.egg
 MANIFEST
+
+# ─── Testing & Coverage ──────────────────────────────────────────────────────
 .pytest_cache/
 .coverage
 .coverage.*
+coverage.xml
 htmlcov/
 .tox/
 .nox/
-.venv/
-venv/
-ENV/
-env/
+.hypothesis/
 
-# IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-
-# Logs
-*.log
-
-# Test outputs
-test_output/
-*.csv
-*.xml
-*.json.bak
-
-# Tooling defaults
-.env
-.env.*
+# ─── Type Checking & Linting ─────────────────────────────────────────────────
 .mypy_cache/
 .ruff_cache/
-coverage.xml
+.dmypy.json
+dmypy.json
+.pytype/
+
+# ─── Environment & Secrets ───────────────────────────────────────────────────
+.env
+.env.*
+.env.local
+
+# ─── Test Output & Data Files ────────────────────────────────────────────────
+# Generated test outputs
+test_output/
+output/
+converted/
+
+# Backup files from conversions
+*.json.bak
+*.csv.bak
+*.xml.bak
+
+# Large test data files
+*.csv
+*.xml
+!examples/*.csv
+!examples/*.xml
+!tests/fixtures/*.csv
+!tests/fixtures/*.xml
+
+# ─── Logs ────────────────────────────────────────────────────────────────────
+*.log
+
+# ─── Temporary Files ─────────────────────────────────────────────────────────
+*.tmp
+*.temp
+*~
+*.swp
+*.swo
+.tmp_*
