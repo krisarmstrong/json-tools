@@ -5,11 +5,13 @@ from __future__ import annotations
 import csv
 import json
 import logging
+from collections.abc import Iterable, Sequence
 from pathlib import Path
-from typing import Any, Iterable, Sequence
+from typing import Any
+from xml.etree.ElementTree import Element, SubElement, tostring
 
-from xml.dom import minidom
-from xml.etree.ElementTree import Element, SubElement, fromstring, tostring
+from defusedxml import minidom
+from defusedxml.ElementTree import fromstring
 
 __all__ = [
     "convert_csv_to_csv",

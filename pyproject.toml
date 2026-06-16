@@ -3,7 +3,7 @@ name = "json-tools"
 version = "2.0.3"
 description = "Unified toolkit for converting, diffing, and formatting JSON/CSV/XML data."
 authors = [
-    { name = "Kris Armstrong", email = "kris.armstrong@example.com" }
+    { name = "Kris Armstrong", email = "kris.armstrong@me.com" }
 ]
 readme = "README.md"
 requires-python = ">=3.14"
@@ -16,6 +16,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
+    "defusedxml>=0.7.1",
     "pyyaml>=6.0",
     "tomli>=2.0; python_version<'3.11'",
 ]
@@ -45,6 +46,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["."]
+include = ["json_tools*"]
 
 [tool.pytest.ini_options]
 addopts = "-ra --showlocals"
@@ -62,5 +64,8 @@ skip_empty = true
 line-length = 100
 extend-exclude = ["build", "dist", ".venv", "venv", ".tox", ".mypy_cache", ".ruff_cache"]
 
-[tool.black]
-line-length = 100
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+docstring-code-format = true
