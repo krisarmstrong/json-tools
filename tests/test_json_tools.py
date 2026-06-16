@@ -6,11 +6,11 @@ import csv
 import json
 import unittest
 from pathlib import Path
-
-from json_tools import converters, json_ops
-from json_tools import __main__ as cli
 from types import SimpleNamespace
 from xml.etree.ElementTree import fromstring
+
+from json_tools import __main__ as cli
+from json_tools import converters, json_ops
 
 
 class JsonToolsTestCase(unittest.TestCase):

@@ -5,8 +5,8 @@ from __future__ import annotations
 import argparse
 import logging
 import sys
+from collections.abc import Callable
 from pathlib import Path
-from typing import Callable
 
 from . import converters, json_ops
 
@@ -42,7 +42,7 @@ def setup_logging(verbose: bool, logfile: Path | None = None) -> None:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Swiss‑army knife for JSON/CSV/XML files.")
+    parser = argparse.ArgumentParser(description="Swiss-army knife for JSON/CSV/XML files.")
     parser.add_argument("-v", "--verbose", action="store_true", help="Enable debug logging.")
     parser.add_argument("-l", "--logfile", type=Path, help="Optional log file.")
 
@@ -81,7 +81,10 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--row-path",
-        help="Dotted path to the repeating element when converting XML to CSV (auto-detected if omitted).",
+        help=(
+            "Dotted path to the repeating element when converting XML to CSV "
+            "(auto-detected if omitted)."
+        ),
     )
     parser.add_argument(
         "--pretty",

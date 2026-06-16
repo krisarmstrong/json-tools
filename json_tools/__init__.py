@@ -7,4 +7,4 @@ try:  # pragma: no cover - version injected at build time
 except ImportError:  # pragma: no cover - fallback for editable installs before scm runs
     __version__ = "0.0.0"
 
-__all__ = ["converters", "json_ops", "__version__"]
+__all__ = ["__version__", "converters", "json_ops"]
