@@ -30,7 +30,7 @@ validation = [
     "jsonschema>=4.0",
 ]
 dev = [
-    "nox>=2024.4.15",
+    "nox>=2026.4.10",
 ]
 
 [project.urls]
