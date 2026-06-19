@@ -27,7 +27,7 @@ test = [
     "coverage[toml]>=7.4",
 ]
 validation = [
-    "jsonschema>=4.0",
+    "jsonschema>=4.26.0",
 ]
 dev = [
     "nox>=2024.4.15",
