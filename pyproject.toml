@@ -41,7 +41,7 @@ Homepage = "https://github.com/krisarmstrong/json-tools"
 json-tools = "json_tools.__main__:main"
 
 [build-system]
-requires = ["setuptools>=68", "wheel"]
+requires = ["setuptools>=82.0.1", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
