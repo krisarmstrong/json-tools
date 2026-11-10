@@ -113,7 +113,7 @@ def convert_xml_to_csv(
     if rows is None:
         raise ValueError(
             "Unable to locate a list of row objects inside the XML. "
-            "Provide --row-element when invoking the CLI to point to the list."
+            "Provide --row-path when invoking the CLI to point to the list."
         )
 
     normalized_rows = [_normalise_row(row) for row in rows]
