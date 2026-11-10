@@ -160,6 +160,15 @@ class JsonToolsTestCase(unittest.TestCase):
         with self.assertRaises(ValueError):
             cli._validate_mode(args)
 
+    def test_xml_to_csv_error_names_row_path_flag(self):
+        flat = self.test_dir / "flat.xml"
+        flat.write_text("<root><name>x</name></root>", encoding="utf-8")
+        target = self.test_dir / "flat.csv"
+        with self.assertRaises(ValueError) as ctx:
+            converters.convert_xml_to_csv(flat, target, ",", "utf-8")
+        self.assertIn("--row-path", str(ctx.exception))
+        self.assertNotIn("--row-element", str(ctx.exception))
+
 
 if __name__ == "__main__":
     unittest.main()
